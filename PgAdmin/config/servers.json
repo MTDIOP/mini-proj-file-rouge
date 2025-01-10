@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Mon Serveur PostgreSQL",
+            "Group": "Mes Serveurs",
+            "Host": "host_du_serveur_postgresql",
+            "Port": 5432,
+            "MaintenanceDB": "postgres",
+            "Username": "utilisateur",
+            "Password": "motdepasse",
+            "SSLMode": "prefer"
+        }
+    }
+}

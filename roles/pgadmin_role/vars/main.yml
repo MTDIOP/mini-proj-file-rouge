@@ -1,0 +1,5 @@
+pgadmin_network_name: "pgadmin_network"
+pgadmin_volume_name: "pgadmin_volume"
+pgadmin_service_name: "pgadmin"
+pgadmin_container_name: "pgadmin_container"
+pgadmin_data_path: "/var/lib/pgadmin_data"  # Chemin de données pour le volume

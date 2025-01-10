@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  odoo:
+    image: odoo:16.0  # Vous pouvez ajuster la version d'Odoo si nécessaire
+    container_name: odoo
+    ports:
+      - "8069:8069"  # Le port par défaut d'Odoo (accessible depuis votre machine hôte)
+    depends_on:
+      - db  # Odoo dépend de la base de données
+    networks:
+      - odoo_network  # Le réseau personnalisé Docker
+    volumes:
+      - odoo_data:/var/lib/odoo  # Volume persistant pour Odoo
+
+  db:
+    image: postgres:13  # Image officielle de Postgres
+    container_name: odoo_db
+    environment:
+      POSTGRES_USER: odoo  # Utilisateur PostgreSQL
+      POSTGRES_PASSWORD: odoo  # Mot de passe PostgreSQL
+      POSTGRES_DB: odoo  # Nom de la base de données
+    networks:
+      - odoo_network  # Le même réseau pour la communication entre Odoo et la base de données
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Volume persistant pour la base de données
+
+networks:
+  odoo_network:
+    driver: bridge  # Utilisation du réseau bridge par défaut
+
+volumes:
+  odoo_data:  # Volume persistant pour les données Odoo
+  db_data:  # Volume persistant pour les données de la base de données

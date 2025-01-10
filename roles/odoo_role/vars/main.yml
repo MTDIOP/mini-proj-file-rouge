@@ -1,0 +1,5 @@
+odoo_network_name: "odoo_network"
+odoo_volume_name: "odoo_volume"
+odoo_service_name: "odoo"
+odoo_container_name: "odoo_container"
+odoo_data_path: "/var/lib/odoo_data"  # Chemin de données pour le volume

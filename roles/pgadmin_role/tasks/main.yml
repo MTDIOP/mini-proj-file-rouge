@@ -1,0 +1,7 @@
+- name: Générer le fichier docker-compose pour PgAdmin
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/pgadmin/docker-compose.yml
+
+- name: Lancer Docker Compose pour PgAdmin
+  command: docker-compose -f /opt/pgadmin/docker-compose.yml up -d

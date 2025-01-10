@@ -1,0 +1,19 @@
+- name: Déployer Odoo et PgAdmin avec Docker
+  hosts: all
+  become: true
+  vars:
+    odoo_network_name: "custom_odoo_network"
+    odoo_volume_name: "custom_odoo_volume"
+    odoo_service_name: "odoo_service"
+    odoo_container_name: "odoo_container"
+    odoo_data_path: "/mnt/data/odoo"
+    
+    pgadmin_network_name: "custom_pgadmin_network"
+    pgadmin_volume_name: "custom_pgadmin_volume"
+    pgadmin_service_name: "pgadmin_service"
+    pgadmin_container_name: "pgadmin_container"
+    pgadmin_data_path: "/mnt/data/pgadmin"
+  
+  roles:
+    - odoo_role
+    - pgadmin_role

@@ -1,0 +1,7 @@
+- name: Générer le fichier docker-compose pour Odoo
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/odoo/docker-compose.yml
+
+- name: Lancer Docker Compose pour Odoo
+  command: docker-compose -f /opt/odoo/docker-compose.yml up -d
