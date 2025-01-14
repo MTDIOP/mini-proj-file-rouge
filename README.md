@@ -7,11 +7,11 @@ I. web-app
 
 2/Creation du container
 
- docker build -t mortalla/ic-webapp:v1.0 .
+ docker build -f Dockerfile_v1 -t mortalla/ic-webapp:v1.0 .
 
 ![alt text](images/image-1.png)
 
- docker run -d --name=test-ic-webapp mortalla/ic-webapp:v1.0
+ docker run -d --name=test-ic-webapp -p 8080:8080 mortalla/ic-webapp:v1.0
 
  ![alt text](images/image-2.png)
 

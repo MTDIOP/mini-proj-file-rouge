@@ -1,0 +1,24 @@
+# 1. Image de base
+FROM python:3.6-alpine
+
+#Maintainer 
+LABEL maintainer="MDI"
+
+# 2. Définir le répertoire de travail /opt
+WORKDIR /opt
+ADD . /opt/
+VOLUME /opt
+
+# 3. Installer le module Flask
+RUN  pip install flask==1.1.2
+
+# 4. Exposer le port 8080
+EXPOSE 8080
+
+# 5. Définir les variables d'environnement
+ENV ODOO_URL="https://www.odoo.com/"
+ENV PGADMIN_URL="https://www.pgadmin.org/"
+
+# 7. Lancer l'application Flask
+ENTRYPOINT ["python"]
+CMD [ "app.py"]

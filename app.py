@@ -11,6 +11,12 @@ app = Flask(__name__)
 ODOO_URL = os.environ.get('ODOO_URL')
 PGADMIN_URL = os.environ.get('PGADMIN_URL')
 
+# Explicitly set the Flask environment to development
+# os.environ['FLASK_ENV'] = 'development'
+
+# Enable debugging
+app.debug = True
+
 @app.route("/")
 def main():
     # return 'Hello'

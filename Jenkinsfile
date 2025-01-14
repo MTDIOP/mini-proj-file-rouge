@@ -8,7 +8,7 @@ pipeline {
        STAGING = "${ID_DOCKER}-staging"
        PRODUCTION = "${ID_DOCKER}-production"
      }
-     
+
      agent none
      stages {
          stage('Build image') {
@@ -37,8 +37,12 @@ pipeline {
            agent any
            steps {
               script {
+
+                // Test d'Odoo
                 sh '''
-                  echo "test pass"
+                echo "Test d'Odoo"
+                ODOO_URL=$(awk '/PGADMIN/(sub/^.* *PGADMIN,""); print $2)' releases.txt
+                curl -s http://$ODOO_URL:8069/web | grep "Odoo" || exit 1
                 '''
               }
            }
